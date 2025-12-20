@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de Categoría - Portafolio</title>
+    <style>
+:root {
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-color: #1f2933;
+    --accent-color: #4a90e2;
+    --muted-text: #6b7280;
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+}
+
+/* Base */
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Navegación */
+nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Contenedor */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* Header de categoría */
+.category-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.category-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.category-header p {
+    color: var(--muted-text);
+    font-size: 1.1rem;
+}
+
+/* Proyecto */
+.project-entry {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    margin-bottom: 5rem;
+}
+
+.project-title {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Grid interno */
+.project-content {
+    display: grid;
+    gap: 2.5rem;
+}
+
+/* Descripción */
+.description p {
+    color: var(--text-color);
+}
+
+/* Tech specs */
+.tech-specs {
+    background: #f1f5f9;
+    padding: 1.8rem;
+    border-radius: 14px;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.tech-specs strong {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    background: rgba(74, 144, 226, 0.15);
+    color: var(--accent-color);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    margin: 6px 6px 0 0;
+    font-weight: 500;
+}
+
+/* Galería */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 14px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.image-gallery img:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Video */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
+            display: none; /* Se activa con JS */
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .modal.active { display: flex; }
+        .modal-content { max-width: 90%; max-height: 80%; border-radius: 8px; }
+        .close-modal { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .category-header h1 {
+        font-size: 2.1rem;
+    }
+
+    .project-entry {
+        padding: 2rem;
+    }
+}
+</style>
+
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Sobre Mí</a>
+        <a href="portafolio.html">← Volver al Portafolio</a>
+    </nav>
+
+    <div class="container">
+        <header class="category-header">
+            <h1>Proyectos de Unity</h1>
+        </header>
+
+                <article class="project-entry">
+            <h2 class="project-title">01. Study No Game: E-Learning Interactivo en Unity</h2>
+            <div class="project-content">
+                <div class="description">
+                    <p><strong>Descripción:</strong> Prototipo de videojuego educativo diseñado para el aprendizaje de Kanjis japoneses. La aplicación ofrece una experiencia lúdica mediante tres mecánicas distintas (Space Shooter, Memorama y Lluvia de Kanjis) que refuerzan la retención visual y la asociación de caracteres. Incluye un sistema de gestión que permite al usuario personalizar su lista de estudio y cambiar el idioma de la interfaz.</p>
+                    
+                    <div class="tech-specs">
+                        <strong>Detalles Técnicos:</strong>
+                        <p>Desarrollado en Unity con C#. Resolví la limitación nativa de WebGL para caracteres complejos mediante un puente de comunicación entre <b>C# y JSLIB</b>, integrando elementos DOM de HTML sobre el Canvas para permitir la entrada de texto en japonés con sincronización de posición y foco.</p>
+                        <span class="badge">Unity 3D / C#</span>
+                        <span class="badge">WebGL Optimization</span>
+                        <span class="badge">JavaScript Bridge (JSLIB)</span>
+                        <span class="badge">Game Design</span>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <img src="images/uni01.avif" >
+                    <img src="images/uni02.avif" >
+                    <img src="images/uni03.avif" >
+                </div>
+
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/a4YXYaGHMWk" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </article>
+
+
+        </div>
+
+         <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="fullImage">
+    </div>
+
+    <script>
+        function openModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('fullImage');
+            modal.classList.add('active');
+            modalImg.src = src;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.image-gallery img').forEach(img => {
+            img.addEventListener('click', () => openModal(img.src));
+        });
+    </script>
+
+</body>
+</html>

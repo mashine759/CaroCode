@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos Google Sheets - Carolina</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-color: #1f2933;
+            --accent-color: #4a90e2;
+            --muted-text: #6b7280;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .category-header { text-align: center; margin-bottom: 4rem; }
+        .category-header h1 { font-size: 2.5rem; margin-bottom: 0.8rem; }
+
+        .project-entry {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            margin-bottom: 4rem;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f4f8;
+            padding-bottom: 10px;
+        }
+
+        /* El Grid ahora contiene TODO para mantener orden */
+        .project-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .tech-specs {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 14px;
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(74, 144, 226, 0.15);
+            color: var(--accent-color);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            margin: 6px 6px 0 0;
+            font-weight: bold;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 14px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .image-gallery img:hover { transform: scale(1.02); }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
+            display: none; /* Se activa con JS */
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .modal.active { display: flex; }
+        .modal-content { max-width: 90%; max-height: 80%; border-radius: 8px; }
+        .close-modal { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+
+        @media (max-width: 768px) { .project-entry { padding: 1.5rem; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Sobre Mí</a>
+        <a href="portafolio.html">← Volver al Portafolio</a>
+    </nav>
+
+    <div class="container">
+        <header class="category-header">
+            <h1>Proyectos Google Sheets</h1>
+            <p>Automatización y soluciones personalizadas</p>
+        </header>
+
+        <article class="project-entry">
+            <h2 class="project-title">01. Sistema Inteligente de Gestión</h2>
+            <div class="project-content">
+                <div class="description">
+                    <p><strong>Descripción:</strong> Dashboard avanzado desarrollado sobre Google Sheets para la administración de objetivos y personal.</p>
+                    <div class="tech-specs">
+                        <strong>Detalles Técnicos:</strong>
+                        <p>Automatización de historiales con Apps Script y auditoría en tiempo real.</p>
+                        <span class="badge">Google Apps Script</span>
+                        <span class="badge">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <img src="images/g01.avif" alt="Vista 1">
+                    <img src="images/g02.avif" alt="Vista 2">
+                </div>
+
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/-mQcpuXLN90"></iframe>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-entry">
+            <h2 class="project-title">02. CRUD Retro Windows 95</h2>
+            <div class="project-content">
+                <div class="description">
+                    <p><strong>Descripción:</strong> Interfaz gráfica retro que transforma Sheets en una aplicación visual.</p>
+                    <div class="tech-specs">
+                        <strong>Detalles Técnicos:</strong>
+                        <p>Lógica de búsqueda dinámica y manipulación de datos CRUD.</p>
+                        <span class="badge">Retro UI</span>
+                        <span class="badge">Data Management</span>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <img src="images/95.avif" alt="Vista Retro 1">
+                </div>
+
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/72NGI92lkPA"></iframe>
+                </div>
+            </div>
+        </article>
+
+            <article class="project-entry">
+            <h2 class="project-title">03. Sistema de Agendamiento Automático con Notificaciones Push</h2>
+            <div class="project-content">
+                <div class="description">
+                    <p><strong>Descripción:</strong> Desarrollo de una herramienta integral de gestión de citas que centraliza la captura de datos y automatiza el seguimiento. El sistema resuelve el problema de inasistencias mediante un flujo de recordatorios estratégicos, eliminando la necesidad de supervisión manual y optimizando la agenda del usuario.</p>
+                    
+                    <div class="tech-specs">
+                        <strong>Detalles Técnicos:</strong>
+                        <p>Integración de una interfaz personalizada (Sidebar HTML/CSS) conectada a Google Apps Script. Implementación de disparadores de tiempo (Time-driven triggers) para el envío automatizado de correos electrónicos programados según la fecha y hora de la cita.</p>
+                        <span class="badge">Google Apps Script</span>
+                        <span class="badge">Automated Emailing</span>
+                        <span class="badge">UI Custom Sidebar</span>
+                        <span class="badge">Triggers & Events</span>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <img src="images/g03.avif" >
+                    <img src="images/g04.avif" >
+                </div>
+
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/EajinVd4-3Q" 
+                        title="Demostración de Agendamiento Automático"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </article>
+
+            <article class="project-entry">
+            <h2 class="project-title">04. Generador de Reportes Operativos con Integración a WhatsApp</h2>
+            <div class="project-content">
+                <div class="description">
+                    <p><strong>Descripción:</strong> Herramienta de checklist automatizada diseñada para agilizar la comunicación de reportes en tiempo real. La solución elimina la redacción manual de mensajes operativos, transformando los datos capturados en Sheets en reportes estructurados listos para ser enviados mediante la API de WhatsApp, garantizando consistencia y rapidez en el flujo de información.</p>
+                    
+                    <div class="tech-specs">
+                        <strong>Detalles Técnicos:</strong>
+                        <p>Implementación de lógica para la generación de mensajes dinámicos y concatenación de datos. Incluye funciones de automatización para el registro de <i>Timestamps</i> dinámicos y un script de limpieza de formulario (Reset) para optimizar la reutilización del recurso.</p>
+                        <span class="badge">WhatsApp API Integration</span>
+                        <span class="badge">Google Apps Script</span>
+                        <span class="badge">Data Formatting</span>
+                        <span class="badge">Workflow Automation</span>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <img src="images/g05.avif" >
+                    <img src="images/g06.avif" >
+                </div>
+
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/1xIo12wNdAI" 
+                        title="Demostración de Checklist y Envío a WhatsApp"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="fullImage">
+    </div>
+
+    <script>
+        function openModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('fullImage');
+            modal.classList.add('active');
+            modalImg.src = src;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.image-gallery img').forEach(img => {
+            img.addEventListener('click', () => openModal(img.src));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mí - Carolina</title>
+    <style>
+:root {
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-color: #1f2933;
+    --accent-color: #4a90e2;
+    --muted-text: #6b7280;
+}
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+}
+
+/* Base */
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Navegación */
+nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    margin-bottom: 4rem;
+}
+
+.hero-text {
+    flex: 2;
+}
+
+.hero-text p {
+    color: var(--muted-text);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.profile-img {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--card-bg);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Títulos */
+h1 {
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    width: 40px;
+    height: 3px;
+    background: var(--accent-color);
+    display: block;
+    margin-top: 8px;
+    border-radius: 2px;
+}
+
+h3 {
+    margin-bottom: 1rem;
+}
+
+/* Secciones */
+section {
+    margin-bottom: 3rem;
+}
+
+/* Video */
+.video-container {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+iframe {
+    width: 100%;
+    max-width: 720px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+}
+</style>
+
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Sobre Mí</a>
+        <a href="portafolio.html">Portafolio</a>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Hola, soy Carolina.</h1>
+                <p><strong>Desarrolladora junior de software</strong> con experiencia en C#, SQL, Google Apps Script, Unity, HTML, CSS y JS. Me apasiona crear soluciones prácticas para optimizar procesos y generar valor real.</p>
+                <p>En logística, he trabajado con clientes clave como <strong>ESGARI, FLEXTRONIC, PMI e IMILE</strong>.</p>
+            </div>
+            <div class="hero-image">
+                <img src="img/caro.jpg" alt="Carolina" class="profile-img">
+            </div>
+        </section>
+
+        <section>
+            <h2>Trayectoria Profesional</h2>
+            <p>Cuento con experiencia en seguridad patrimonial logística, gestionando control de embarques, monitoreo GPS y protocolos de seguridad. Actualmente fortalezco mi formación técnica con certificaciones de IBM y desarrollo de software.</p>
+            
+            <p><strong>Idiomas:</strong> Inglés B2 (en preparación para C1) y estudiante activo de Japonés.</p>
+        </section>
+
+        <section class="video-container">
+            <h3>English Proficiency</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/34IHrejkuH0" frameborder="0" allowfullscreen></iframe>
+        </section>
+    </div>
+
+</body>
+</html>

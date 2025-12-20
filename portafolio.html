@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Carolina</title>
+    <style>
+:root {
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-color: #1f2933;
+    --accent-color: #4a90e2;
+    --muted-text: #6b7280;
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+}
+
+/* Base */
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* Navegación (misma que index) */
+nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Contenedor */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Título principal */
+h1 {
+    font-size: 2.4rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Grid de proyectos */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Tarjeta de proyecto */
+.project-card {
+    background: var(--card-bg);
+    border-radius: 18px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+}
+
+/* Imagen */
+.project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #e5e7eb;
+}
+
+/* Info */
+.project-info {
+    padding: 1.8rem;
+}
+
+.project-info h3 {
+    margin: 0 0 0.6rem 0;
+    font-size: 1.25rem;
+    color: var(--accent-color);
+}
+
+.project-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--muted-text);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+</style>
+
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Sobre Mí</a>
+        <a href="portafolio.html">Portafolio</a>
+    </nav>
+
+    <div class="container">
+        <h1>Mis Proyectos</h1>
+
+            <div class="portfolio-grid">
+                
+                <a href="URL-SheetsG.html" class="project-card">
+                <img src="images/googles.avif" alt="Google Sheets Automation" class="project-img">
+                <div class="project-info">
+                <h3>Soluciones con Apps Script</h3>
+                <p>Automatización de procesos y creación de interfaces interactivas dentro del entorno de Google Sheets.</p>
+            </div>
+            </a>
+
+        <a href="URL-crud.html" class="project-card">
+        <img src="images/crud.avif" alt="SQL CRUD App" class="project-img">
+        <div class="project-info">
+            <h3>Aplicación CRUD & SQL</h3>
+            <p>Gestión de bases de datos relacionales mediante una interfaz funcional para el manejo de información dinámica.</p>
+        </div>
+        </a>
+
+        <a href="URL-unity.html" class="project-card">
+        <img src="images/unity.avif" alt="Unity Development" class="project-img">
+        <div class="project-info">
+            <h3>Desarrollo Interactivo en Unity</h3>
+            <p>Creación de experiencias educativas y aplicaciones interactivas multiplataforma utilizando C# y Unity.</p>
+        </div>
+        </a>
+
+        <a href="URL-JPweb.html" class="project-card">
+        <img src="images/japo.avif" alt="Aprender Japonés" class="project-img">
+        <div class="project-info">
+            <h3>Web Educativa: Idioma Japonés</h3>
+            <p>Prototipo interactivo con lectura y traducción instantánea de términos mediante clics en tiempo real.</p>
+        </div>
+        </a>
+
+        <a href="URL-webdv.html" class="project-card">
+        <img src="images/dog01.jpg" alt="Desarrollo Web" class="project-img">
+        <div class="project-info">
+            <h3>Desarrollo Web Comercial</h3>
+            <p>Diseño y despliegue de Landing Pages optimizadas para negocios, con enfoque en UI/UX y conversión.</p>
+        </div>
+        </a>
+
+        </div>
+    </div>
+
+</body>
+</html>
