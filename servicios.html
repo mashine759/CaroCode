@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios, Tarifas y Automatización | Carolina Web Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --matrix-green: #22c55e;
+            --dark-green: #052e16;
+            --pure-black: #000000;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace; /* Fuente de pixeles global */
+            background-color: var(--pure-black);
+            color: #e4e4e7;
+            margin: 0;
+        }
+
+        .font-mono-tech {
+            color: var(--matrix-green);
+        }
+
+        /* --- CAPAS DE EFECTO CRT RETRO --- */
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04));
+            background-size: 100% 3px, 3px 100%;
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.12;
+        }
+
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("https://media.giphy.com/media/oEI9uWUznW3QI/giphy.gif");
+            opacity: 0.008;
+            pointer-events: none;
+            z-index: 90;
+        }
+
+        /* --- EFECTO GLITCH DE ENERGÍA GLOBAL --- */
+        .container-main {
+            animation: power-glitch 6s infinite;
+        }
+
+        @keyframes power-glitch {
+            0%, 94%, 96%, 100% { transform: translate(0); filter: brightness(1) hue-rotate(0deg); }
+            94.5% { transform: translate(2px, -1px); filter: brightness(1.3) hue-rotate(160deg); contrast(120%); } 
+            95% { transform: translate(-2px, 1px); filter: brightness(1.1) hue-rotate(200deg); contrast(140%); } 
+        }
+
+        /* --- ANIMACIONES GLITCH EN TEXTOS --- */
+        .glitch-text {
+            position: relative;
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+        }
+
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            top: 0;
+            clip: rect(0, 900px, 0, 0);
+            animation: glitch-anim 3s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(20px, 9999px, 10px, 0); }
+            100% { clip: rect(40px, 9999px, 50px, 0); }
+        }
+
+        /* --- COMPONENTES DIGITALES --- */
+        .cyber-border {
+            border: 2px solid var(--matrix-green);
+            box-shadow: 0 0 12px rgba(34, 197, 94, 0.12);
+        }
+        
+        .cyber-border-accent {
+            border: 2px solid #3b82f6;
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.15);
+        }
+    </style>
+</head>
+<body class="overflow-y-auto text-base sm:text-lg">
+
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+
+    <!-- CONTENEDOR ENVOLVENTE CON EFECTO GLITCH GLOBAL -->
+    <div class="container-main max-w-5xl mx-auto p-5 sm:p-8 md:p-12 relative z-10 space-y-14">
+        
+        <!-- ENCABEZADO CON TITULO GLITCH -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end border-b-2 border-green-950 pb-6">
+            <div class="font-mono-tech">
+                <h1 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white glitch-text" data-text="GUÍA_DE_SERVICIOS">
+                    <i class="fa-solid fa-code-branch text-green-500 mr-2"></i>GUÍA_DE_SERVICIOS
+                </h1>
+                <p class="text-xs sm:text-sm text-green-500 font-bold mt-2 tracking-widest">SISTEMA DE COTIZACIONES, LOGÍSTICA DE DATOS Y CAPACITACIÓN</p>
+            </div>
+            <div class="mt-4 sm:mt-0 font-mono-tech">
+                <a href="index.html" class="text-sm font-bold border-2 border-green-500 px-4 py-2 bg-green-950/30 hover:bg-green-500 hover:text-black transition-all inline-block">
+                    <i class="fa-solid fa-arrow-left mr-2"></i>VOLVER_AL_PORTAFOLIO
+                </a>
+            </div>
+        </div>
+
+        <!-- 1. ¿CÓMO FUNCIONA UNA PÁGINA WEB? -->
+        <section class="space-y-6">
+            <h2 class="text-sm sm:text-base font-bold tracking-widest text-green-500 uppercase border-b border-green-950 pb-2 font-mono-tech">
+                <i class="fa-solid fa-globe mr-2"></i>¿Cómo funciona una Página Web?
+            </h2>
+            <p class="text-zinc-200 leading-relaxed text-lg font-medium">
+                Para tener tu presencia activa en internet se necesitan tres elementos esenciales, los cuales yo configuro por completo para ti:
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="cyber-border p-6 bg-black rounded-lg">
+                    <h3 class="text-white font-bold text-lg mb-3 flex items-center">
+                        <i class="fa-solid fa-server text-green-500 mr-2"></i>El Local (Hosting)
+                    </h3>
+                    <p class="text-sm sm:text-base text-zinc-300 leading-relaxed font-medium">
+                        Imagina que internet es una plaza comercial gigante. El hosting es el local físico que rentas dentro de ella. Es el espacio seguro en la nube donde guardamos tus fotos, tus menús y la información de tu negocio.
+                    </p>
+                </div>
+
+                <div class="cyber-border p-6 bg-black rounded-lg">
+                    <h3 class="text-white font-bold text-lg mb-3 flex items-center">
+                        <i class="fa-solid fa-arrow-pointer text-green-500 mr-2"></i>La Dirección (Dominio)
+                    </h3>
+                    <p class="text-sm sm:text-base text-zinc-300 leading-relaxed font-medium">
+                        Es el nombre exclusivo de tu marca en internet (ej. tusmismos-tacos.com). Es la dirección exacta que tus clientes escriben en su celular para llegar directo a tu negocio sin perderse en el camino.
+                    </p>
+                </div>
+
+                <div class="cyber-border p-6 bg-black rounded-lg">
+                    <h3 class="text-white font-bold text-lg mb-3 flex items-center">
+                        <i class="fa-solid fa-compass-drafting text-green-500 mr-2"></i>La Construcción (Diseño)
+                    </h3>
+                    <p class="text-sm sm:text-base text-zinc-300 leading-relaxed font-medium">
+                        Es la estructura interna: cómo acomodamos los mostradores digitales, las listas de tus productos y los botones rápidos para que tus visitantes vean tus precios y te manden un WhatsApp en un segundo.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. PAQUETES DE PÁGINAS WEB -->
+        <section class="space-y-6">
+            <h2 class="text-sm sm:text-base font-bold tracking-widest text-green-500 uppercase border-b border-green-950 pb-2 font-mono-tech">
+                <i class="fa-solid fa-tags mr-2"></i>Opciones de Páginas Web y Mantenimiento Local
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="cyber-border p-6 bg-zinc-950/60 flex flex-col justify-between border-l-4 border-l-green-500 rounded-lg">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-white font-black text-xl flex items-center">
+                                <i class="fa-solid fa-store text-green-500 mr-2"></i>Paquete "Emprende"
+                            </h3>
+                            <span class="text-xs sm:text-sm bg-green-950 text-green-400 border border-green-900 px-3 py-1 rounded font-bold">Puestos Pequeños</span>
+                        </div>
+                        <p class="text-sm sm:text-base text-zinc-400 mb-5 italic font-medium">
+                            Pensado para: Tacos, tamales, tienditas, estéticas de colonia o mecánicos que buscan que los encuentren rápido en su zona.
+                        </p>
+                        
+                        <div class="space-y-2 mb-6 text-base sm:text-lg border-b border-green-950 pb-4">
+                            <p class="text-zinc-300">Creación (Pago único): <strong class="text-white text-xl">$2,500 MXN</strong><br><span class="text-xs sm:text-sm text-zinc-500">(en 2 partes: 50% inicio / 50% entrega)</span></p>
+                            <p class="text-zinc-300">Soporte y Hosting: <strong class="text-green-400 text-xl">$150 MXN / mes</strong> <span class="text-xs sm:text-sm text-zinc-500">(o $1,500 al año)</span></p>
+                            <p class="text-[11px] text-green-500/80 font-bold tracking-wider mt-1">> NOTA: El costo de soporte inicia a partir del 3er mes.</p>
+                        </div>
+
+                        <div class="space-y-4 text-sm sm:text-base font-medium">
+                            <div>
+                                <p class="text-white font-bold mb-2 text-base"><i class="fa-solid fa-circle-check text-green-500 mr-2"></i> ¿Qué incluye la página?</p>
+                                <ul class="list-disc list-inside text-zinc-300 pl-2 space-y-1">
+                                    <li>Diseño de 1 sola página optimizada para celular.</li>
+                                    <li>Menú digital de productos o lista de precios.</li>
+                                    <li>Botón directo para enviar WhatsApp en un clic.</li>
+                                    <li>Ubicación con mapa interactivo de Google.</li>
+                                </ul>
+                            </div>
+                            <div class="pt-2">
+                                <p class="text-white font-bold mb-2 text-base"><i class="fa-solid fa-wrench text-green-500 mr-2"></i> ¿Qué incluye el soporte mensual?</p>
+                                <ul class="list-disc list-inside text-zinc-300 pl-2 space-y-1">
+                                    <li>Servicio de hosting ya incluido (sin enredos técnicos).</li>
+                                    <li>Actualizaciones de precios, fotos, informacion, etc.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cyber-border p-6 bg-zinc-950/60 flex flex-col justify-between border-l-4 border-l-green-500 rounded-lg">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-white font-black text-xl flex items-center">
+                                <i class="fa-solid fa-briefcase text-green-500 mr-2"></i>Paquete "Negocio Pro"
+                            </h3>
+                            <span class="text-xs sm:text-sm bg-green-950 text-green-400 border border-green-900 px-3 py-1 rounded font-bold">Precios Normales</span>
+                        </div>
+                        <p class="text-sm sm:text-base text-zinc-400 mb-5 italic font-medium">
+                            Pensado para: Consultorios médicos, estéticas grandes, despachos de servicios o negocios establecidos que necesitan secciones separadas.
+                        </p>
+                        
+                        <div class="space-y-2 mb-6 text-base sm:text-lg border-b border-green-950 pb-4">
+                            <p class="text-zinc-300">Creación (Pago único): <strong class="text-white text-xl">$4,500 MXN</strong><br><span class="text-xs sm:text-sm text-zinc-500">(en esquema 50/50: anticipo y liberación)</span></p>
+                            <p class="text-zinc-300">Soporte y Hosting: <strong class="text-green-400 text-xl">$300 MXN / mes</strong> <span class="text-xs sm:text-sm text-zinc-500">(o $3,000 al año)</span></p>
+                            <p class="text-[11px] text-green-500/80 font-bold tracking-wider mt-1">> NOTA: El costo de soporte inicia a partir del 3er mes.</p>
+                        </div>
+
+                        <div class="space-y-4 text-sm sm:text-base font-medium">
+                            <div>
+                                <p class="text-white font-bold mb-2 text-base"><i class="fa-solid fa-circle-check text-green-500 mr-2"></i> ¿Qué incluye la página?</p>
+                                <ul class="list-disc list-inside text-zinc-300 pl-2 space-y-1">
+                                    <li>Diseño de hasta 4 secciones (Inicio, Nosotros, Servicios, Contacto).</li>
+                                    <li>Formulario de contacto o galería interactiva de tu trabajo.</li>
+                                    <li>Enlaces a redes y alta optimizada en Google Maps.</li>
+                                </ul>
+                            </div>
+                            <div class="pt-2">
+                                <p class="text-white font-bold mb-2 text-base"><i class="fa-solid fa-wrench text-green-500 mr-2"></i> ¿Qué incluye el soporte mensual?</p>
+                                <ul class="list-disc list-inside text-zinc-300 pl-2 space-y-1">
+                                    <li>Servicio de hosting ya incluido (sin enredos técnicos).</li>
+                                    <li>Actualizaciones frecuentes de textos, banners o servicios.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SOLUCIONES DE DATOS, AUTOMATIZACIÓN Y CAPACITACIÓN -->
+        <section class="space-y-6">
+            <h2 class="text-sm sm:text-base font-bold tracking-widest text-blue-400 uppercase border-b border-blue-950 pb-2 font-mono-tech">
+                <i class="fa-solid fa-gears mr-2"></i>Soluciones de Datos, Automatización y Capacitación
+            </h2>
+            <p class="text-zinc-200 leading-relaxed text-lg font-medium">
+                Optimización de procesos internos, control de inventarios, reportes inteligentes y entrenamiento especializado a tu medida:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="cyber-border-accent p-6 bg-zinc-950/60 flex flex-col justify-between border-l-4 border-l-blue-500 rounded-lg">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-white font-black text-xl flex items-center">
+                                <i class="fa-solid fa-laptop-code text-blue-400 mr-2"></i>Scripts y Automatización
+                            </h3>
+                            <span class="text-xs sm:text-sm bg-blue-950 text-blue-300 border border-blue-900 px-3 py-1 rounded font-bold">Datos e Ideas</span>
+                        </div>
+                        <p class="text-sm sm:text-base text-zinc-400 mb-5 italic font-medium">
+                            Desarrollo de lógica personalizada para Google Sheets (Apps Script), macros en Excel, bases de datos SQL y consultas complejas.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6 text-base sm:text-lg border-b border-blue-950 pb-4">
+                            <div>
+                                <p class="text-zinc-300">Asesoría / Diagnóstico Inicial:</p>
+                                <strong class="text-blue-400 text-xl">$100 MXN por cada 30 minutos</strong>
+                            </div>
+                            <div>
+                                <p class="text-zinc-300">Desarrollo de Documentos y Scripts:</p>
+                                <strong class="text-white text-base">Cotización bajo proyecto personalizado</strong>
+                                <p class="text-xs text-zinc-500 mt-1">El precio se calcula con base en la complejidad de la idea, la estructura de los datos y el nivel de automatización solicitado.</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 text-sm sm:text-base font-medium">
+                            <p class="text-white font-bold mb-1"><i class="fa-solid fa-circle-nodes text-blue-400 mr-2"></i> ¿Qué podemos construir?</p>
+                            <ul class="list-disc list-inside text-zinc-300 pl-2 space-y-1">
+                                <li>Automatizaciones en Google Sheets para envío de correos o alertas.</li>
+                                <li>Hojas de cálculo en Excel avanzadas para control de inventarios.</li>
+                                <li>Estructuración de consultas e historiales en bases de datos SQL.</li>
+                                <li>Conexión de formularios automáticos con tableros de control.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cyber-border-accent p-6 bg-zinc-950/60 flex flex-col justify-between border-l-4 border-l-blue-500 rounded-lg">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-white font-black text-xl flex items-center">
+                                <i class="fa-solid fa-graduation-cap text-blue-400 mr-2"></i>Clases y Capacitación
+                            </h3>
+                            <span class="text-xs sm:text-sm bg-blue-950 text-blue-300 border border-blue-900 px-3 py-1 rounded font-bold">Entrenamiento</span>
+                        </div>
+                        <p class="text-sm sm:text-base text-zinc-400 mb-5 italic font-medium">
+                            Clases individuales o capacitaciones para el personal de tu empresa. Aprende desde lógica básica hasta herramientas avanzadas.
+                        </p>
+                        
+                        <div class="space-y-4 mb-6 text-base sm:text-lg border-b border-blue-950 pb-4">
+                            <div>
+                                <p class="text-zinc-300">Modalidades de Entrenamiento:</p>
+                                <strong class="text-white text-base">Planes Individuales o Empresariales</strong>
+                                <p class="text-xs text-zinc-500 mt-1">Sesiones prácticas enfocadas en resolver problemas reales de tu día a día operativo u objetivos profesionales.</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 text-sm sm:text-base font-medium">
+                            <p class="text-white font-bold mb-2 text-base"><i class="fa-solid fa-layer-group text-blue-400 mr-2"></i> Especialidades Disponibles:</p>
+                            <div class="grid grid-cols-2 gap-2 text-zinc-300 text-xs sm:text-sm font-bold">
+                                <div class="bg-blue-950/30 border border-blue-900/50 p-2 rounded">
+                                    <i class="fa-solid fa-file-excel text-green-500 mr-1"></i> Excel Avanzado
+                                </div>
+                                <div class="bg-blue-950/30 border border-blue-900/50 p-2 rounded">
+                                    <i class="fa-solid fa-code text-orange-500 mr-1"></i> Prog. Web
+                                </div>
+                                <div class="bg-blue-950/30 border border-blue-900/50 p-2 rounded">
+                                    <i class="fa-solid fa-database text-cyan-400 mr-1"></i> SQL Server
+                                </div>
+                                <div class="bg-blue-950/30 border border-blue-900/50 p-2 rounded">
+                                    <i class="fa-solid fa-gamepad text-indigo-400 mr-1"></i> Unity (Juegos)
+                                </div>
+                            </div>
+                            <p class="text-xs text-zinc-400 mt-3 italic">Mejoramos el perfil técnico de tu equipo con temarios prácticos y consultorías en tiempo real.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CONSULTAS FRECUENTES -->
+        <section class="space-y-6">
+            <h2 class="text-sm sm:text-base font-bold tracking-widest text-green-500 uppercase border-b border-green-950 pb-2 font-mono-tech">
+                <i class="fa-solid fa-terminal mr-2"></i>Consultas_frecuentes_sistema
+            </h2>
+            
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <div class="border-b border-green-950 pb-6 space-y-3">
+                    <div class="text-xs sm:text-sm font-mono-tech font-bold tracking-wider opacity-60">
+                        <i class="fa-solid fa-terminal mr-1"></i>> execute_faq_01.sh
+                    </div>
+                    <h3 class="text-white font-bold text-lg sm:text-xl flex items-start">
+                        <span class="text-green-500 mr-3 font-bold">></span>1. ¿Cómo se mantiene mi página después del primer año?
+                    </h3>
+                    <p class="text-zinc-300 leading-relaxed pl-6 text-base sm:text-lg text-justify font-medium">
+                        Piénsalo como la renta de tu local en internet. Para que no te preocupes por renovaciones sorpresa, contratos o fallas técnicas, tu mensualidad de soporte cubre todo. Tu página se queda activa, protegida y si necesitas cambiar un precio o una foto de tu menú, me mandas un WhatsApp y yo lo actualizo por ti. Tú atiende tu negocio, que tu rincón digital se cuida solo.
+                    </p>
+                </div>
+
+                <div class="border-b border-green-950 pb-6 space-y-3">
+                    <div class="text-xs sm:text-sm font-mono-tech font-bold tracking-wider opacity-60">
+                        <i class="fa-solid fa-terminal mr-1"></i>> execute_faq_02.sh
+                    </div>
+                    <h3 class="text-white font-bold text-lg sm:text-xl flex items-start">
+                        <span class="text-green-500 mr-3 font-bold">></span>2. ¿Se va a ver bien en celulares?
+                    </h3>
+                    <p class="text-zinc-300 leading-relaxed pl-6 text-base sm:text-lg text-justify font-medium">
+                        ¡Claro que sí! Hoy la mayoría de la gente busca comida o servicios desde el teléfono mientras está en la calle o en su casa. Tu página estará adaptada al 100% para celulares para que tus clientes leer tus precios y vean tus fotos de forma rápida, cómoda y con un solo dedo.
+                    </p>
+                </div>
+
+                <div class="border-b border-green-950 pb-6 space-y-3">
+                    <div class="text-xs sm:text-sm font-mono-tech font-bold tracking-wider opacity-60">
+                        <i class="fa-solid fa-terminal mr-1"></i>> execute_faq_03.sh
+                    </div>
+                    <h3 class="text-white font-bold text-lg sm:text-xl flex items-start">
+                        <span class="text-green-500 mr-3 font-bold">></span>3. ¿Tengo que pagar extra por aparecer en Google Maps?
+                    </h3>
+                    <p class="text-zinc-300 leading-relaxed pl-6 text-base sm:text-lg text-justify font-medium">
+                        No, va incluido en tu paquete. Registro tu local en el mapa de Google para que cuando alguien en tu colonia busque lo que ofreces (como "estética" o "tacos cerca de mí"), aparezcas de inmediato con tu horario correcto, ubicación exacta y el enlace a tu nueva web para que te visiten o te marquen de inmediato.
+                    </p>
+                </div>
+
+                <div class="border-b border-green-950 pb-6 space-y-3">
+                    <div class="text-xs sm:text-sm font-mono-tech font-bold tracking-wider opacity-60">
+                        <i class="fa-solid fa-terminal mr-1"></i>> execute_faq_04.sh
+                    </div>
+                    <h3 class="text-white font-bold text-lg sm:text-xl flex items-start">
+                        <span class="text-green-500 mr-3 font-bold">></span>4. ¿Qué pasa si después quiero cambiar cosas o agregar secciones?
+                    </h3>
+                    <p class="text-zinc-300 leading-relaxed pl-6 text-base sm:text-lg text-justify font-medium">
+                        Tu negocio crece y tu página también. Los cambios pequeños del día a día (como actualizar un precio o una foto) ya están cubiertos en tu mensualidad. Si en el futuro quieres cambiar todo el diseño o agregar cosas más grandes (como una sección de facturación o un catálogo complejo), lo platicamos y te hago una extensión muy accesible.
+                    </p>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="text-xs sm:text-sm font-mono-tech font-bold tracking-wider opacity-60">
+                        <i class="fa-solid fa-terminal mr-1"></i>> execute_faq_05.sh
+                    </div>
+                    <h3 class="text-white font-bold text-lg sm:text-xl flex items-start">
+                        <span class="text-green-500 mr-3 font-bold">></span>5. ¿La página realmente me pertenece?
+                    </h3>
+                    <p class="text-zinc-300 leading-relaxed pl-6 text-base sm:text-lg text-justify font-medium">
+                        Completamente. Tú eres el dueño legítimo de tu marca y de tu negocio. El nombre de tu página y su registro de almacenamiento quedan a tu nombre desde el primer día. Yo solo actúo como tu administradora técnica para garantizar que todo funcione sin errores detrás de escena, pero el control absoluto es tuyo.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACCIÓN INFERIOR -->
+        <div class="cyber-border p-8 bg-black text-center max-w-2xl mx-auto rounded-lg border-green-500 shadow-[0_0_18px_rgba(34,197,94,0.15)]">
+            <h4 class="text-white font-bold text-lg mb-3 font-mono-tech"><i class="fa-solid fa-comments text-green-500 mr-2"></i>¿TIENES UN PROYECTO EN MENTE?</h4>
+            <p class="text-sm sm:text-base text-zinc-400 mb-6 font-medium">Mándame un mensaje para agendar una asesoría de 30 minutos o platicar sobre la automatización o página web que necesitas.</p>
+            <a href="https://wa.me/523311433162?text=Hola%20Carolina,%20vi%20tu%20tabla%20de%20servicios.%20Me%20interesa%20agendar%20una%20asesoria%20de%20datos%20o%20cotizar%20un%20proyecto." target="_blank" 
+               class="inline-block bg-green-500 text-black font-black px-8 py-4 uppercase text-xs sm:text-sm tracking-wider rounded shadow-[0_4px_12px_rgba(34,197,94,0.3)] hover:bg-green-400 transition-all transform hover:scale-105 font-mono-tech">
+                <i class="fa-brands fa-whatsapp mr-2"></i>INICIAR_CONSULTA_TECNICA
+            </a>
+        </div>
+
+        <!-- PIE DE PÁGINA -->
+        <footer class="pt-6 border-t border-green-950 text-center text-xs text-green-700 font-bold tracking-widest font-mono-tech">
+            HOJA_DE_DATOS_COMERCIALES // © 2026 CARO_CODE
+        </footer>
+
+    </div>
+
+</body>
+</html>
