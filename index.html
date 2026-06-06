@@ -18,7 +18,6 @@
             font-family: 'Fira Code', monospace;
             background-color: var(--pure-black);
             color: var(--matrix-green);
-            overflow: hidden;
             margin: 0;
         }
 
@@ -99,16 +98,16 @@
         .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--matrix-green); }
     </style>
 </head>
-<body>
+<body class="overflow-y-auto md:overflow-hidden">
 
     <div class="scanlines"></div>
     <div class="noise"></div>
 
-    <!-- CONTENEDOR PRINCIPAL CON ANIMACIÓN ENERGY GLITCH -->
-    <div class="container-main flex h-screen relative z-10 flex-col md:flex-row">
+    <!-- CONTENEDOR PRINCIPAL OPTIMIZADO PARA MÓVILES -->
+    <div class="container-main flex min-h-screen md:h-screen relative z-10 flex-col md:flex-row">
         
         <!-- BARRA LATERAL: PERFIL COMPLETO -->
-        <aside class="w-full md:w-80 border-b md:border-b-0 md:border-r border-green-950 bg-black/90 p-5 flex flex-col justify-between custom-scrollbar overflow-y-auto">
+        <aside class="w-full md:w-80 border-b md:border-b-0 md:border-r border-green-950 bg-black/90 p-5 flex flex-col justify-between md:overflow-y-auto custom-scrollbar shrink-0">
             <div class="space-y-4">
                 <!-- Bloque Foto de Perfil -->
                 <div class="text-center mt-2">
@@ -142,37 +141,36 @@
             </div>
 
             <!-- Datos Fijos de Contacto Directo Lateral -->
-            <div class="mt-4 pt-3 border-t border-green-950 text-[11px] text-zinc-400 space-y-0.5">
-                
+            <div class="mt-6 md:mt-4 pt-3 border-t border-green-950 text-[11px] text-zinc-400 space-y-0.5">
                 <p>📞 <strong>Teléfono:</strong> 33 1143 3162</p>
                 <p>🌐 <strong>Estatus:</strong> Disponible para Proyectos</p>
             </div>
         </aside>
 
         <!-- PANTALLA CENTRAL DE OPERACIONES -->
-        <main class="flex-1 p-6 md:p-8 overflow-y-auto custom-scrollbar flex flex-col justify-between h-full bg-zinc-950/40">
+        <main class="flex-1 p-4 sm:p-6 md:p-8 md:overflow-y-auto custom-scrollbar flex flex-col justify-between bg-zinc-950/40">
             
-            <div>
+            <div class="space-y-6">
                 <!-- Encabezado Principal de la Terminal -->
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6 border-b border-green-950 pb-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end border-b border-green-950 pb-4">
                     <div>
                         <h1 class="text-2xl sm:text-3xl font-black uppercase tracking-tight glitch-text text-white" data-text="TERMINAL_PORTAFOLIO">
                             TERMINAL_PORTAFOLIO
                         </h1>
                         <p class="text-[10px] text-green-600 font-bold mt-1">USER: A_VISITOR | ENVIRONMENT: LIVE</p>
                     </div>
-                    <div class="mt-2 sm:mt-0">
+                    <div class="mt-2 sm:mt-0 flex items-center">
                         <span class="inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse mr-2"></span>
                         <span class="text-green-500 font-bold text-xs tracking-wider">CONEXIÓN_ESTABLE</span>
                     </div>
                 </div>
 
                 <!-- === SECCIÓN ÚNICA DE CONTENIDO === -->
-                <div id="sec-inicio">
+                <div id="sec-inicio" class="space-y-6">
                     
                     <!-- BANNER DE ENTRADA (Caja de Servicios del Panfleto) -->
-                    <div class="cyber-border p-5 bg-green-950/10 mb-8 border-l-4 border-l-green-500">
-                        <h3 class="text-white font-bold text-lg mb-2">🚀 ¡Haz que tu negocio crezca en internet!</h3>
+                    <div class="cyber-border p-5 bg-green-950/10 border-l-4 border-l-green-500">
+                        <h3 class="text-white font-bold text-lg mb-2">¡Haz que tu negocio crezca en internet!</h3>
                         <p class="text-zinc-300 text-sm mb-4 leading-relaxed">
                             Ahorra tiempo, dale prestigio a tu marca y vende más. Te diseño tu página Web a la medida, ideal para: Comidas, Estéticas, Tienditas, Mecánicos y Servicios Profesionales.
                         </p>
@@ -187,62 +185,66 @@
                     </div>
 
                     <!-- REJILLA DE PROYECTOS VISUALES -->
-                    <h3 class="text-xs font-bold mb-4 tracking-widest text-green-600 uppercase border-b border-green-950 pb-1">Proyectos_comerciales</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                        <div class="cyber-border p-4 bg-black flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">[ HOT DOGS & BURGERS ]</h4>
-                                <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Página web comercial adaptada para restaurantes o locales de comida rápida. Menú interactivo y responsivo.</p>
+                    <div>
+                        <h3 class="text-xs font-bold mb-4 tracking-widest text-green-600 uppercase border-b border-green-950 pb-1">Proyectos_comerciales</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="cyber-border p-4 bg-black flex flex-col justify-between min-h-[200px]">
+                                <div>
+                                    <h4 class="text-white font-bold text-sm mb-1">[ HOT DOGS & BURGERS ]</h4>
+                                    <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Página web comercial adaptada para restaurantes o locales de comida rápida. Menú interactivo y responsivo.</p>
+                                </div>
+                                <a href="https://page-web.github.io/HotDogs/" target="_blank" class="cyber-button w-full py-2 text-center text-[10px] font-bold block uppercase tracking-wider">EVALUAR_INTERFAZ</a>
                             </div>
-                            <a href="https://page-web.github.io/HotDogs/" target="_blank" class="cyber-button w-full py-2 text-center text-[10px] font-bold block uppercase tracking-wider">EVALUAR_INTERFAZ</a>
-                        </div>
 
-                        <div class="cyber-border p-4 bg-black flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">[ LA FONDITA ]</h4>
-                                <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Diseño tradicional y limpio adaptado a comedores o negocios gastronómicos locales, optimizado para celulares.</p>
+                            <div class="cyber-border p-4 bg-black flex flex-col justify-between min-h-[200px]">
+                                <div>
+                                    <h4 class="text-white font-bold text-sm mb-1">[ LA FONDITA ]</h4>
+                                    <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Diseño tradicional y limpio adaptado a comedores o negocios gastronómicos locales, optimizado para celulares.</p>
+                                </div>
+                                <a href="https://page-web.github.io/Fondita/" target="_blank" class="cyber-button w-full py-2 text-center text-[10px] font-bold block uppercase tracking-wider">EVALUAR_INTERFAZ</a>
                             </div>
-                            <a href="https://page-web.github.io/Fondita/" target="_blank" class="cyber-button w-full py-2 text-center text-[10px] font-bold block uppercase tracking-wider">EVALUAR_INTERFAZ</a>
-                        </div>
 
-                        <div class="cyber-border p-4 bg-black flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">[ GABO ONE PORTAL ]</h4>
-                                <p class="text-xs text-zinc-400 mb-4 leading-relaxed">
-                                    Landing page profesional para estéticas masculinas y barberías. Presenta un diseño moderno y optimizado que aumenta la visibilidad del negocio en internet e integra un sistema intuitivo para que los clientes agenden citas directamente.
-                                </p>
+                            <div class="cyber-border p-4 bg-black flex flex-col justify-between min-h-[200px]">
+                                <div>
+                                    <h4 class="text-white font-bold text-sm mb-1">[ GABO ONE PORTAL ]</h4>
+                                    <p class="text-xs text-zinc-400 mb-4 leading-relaxed">
+                                        Landing page profesional para estéticas masculinas y barberías. Presenta un diseño moderno y optimizado que aumenta la visibilidad del negocio en internet e integra un sistema intuitivo para que los clientes agenden citas directamente.
+                                    </p>
+                                </div>
+                                <a href="https://www.gabo.one" target="_blank" class="cyber-button w-full py-2 text-center text-[10px] font-bold block uppercase tracking-wider">EVALUAR_INTERFAZ</a>
                             </div>
-                            <a href="https://www.gabo.one" target="_blank" class="cyber-button w-full py-2 text-center text-[10px] font-bold block uppercase tracking-wider">EVALUAR_INTERFAZ</a>
                         </div>
                     </div>
 
                     <!-- HERRAMIENTAS AVANZADAS -->
-                    <h3 class="text-xs font-bold mb-4 tracking-widest text-green-600 uppercase border-b border-green-950 pb-1">Plataformas_especiales</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                        <div class="cyber-border p-4 bg-black flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">[ MONITOR OESTE ]</h4>
-                                <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Aplicación analítica robusta de monitoreo. Centraliza reportes climáticos, accidentes viales y alertas de Guardia Nacional en tiempo real.</p>
+                    <div>
+                        <h3 class="text-xs font-bold mb-4 tracking-widest text-green-600 uppercase border-b border-green-950 pb-1">Plataformas_especiales</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="cyber-border p-4 bg-black flex flex-col justify-between min-h-[200px]">
+                                <div>
+                                    <h4 class="text-white font-bold text-sm mb-1">[ MONITOR OESTE ]</h4>
+                                    <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Aplicación analítica robusta de monitoreo. Centraliza reportes climáticos, accidentes viales y alertas de Guardia Nacional en tiempo real.</p>
+                                </div>
+                                <a href="https://monitor-west-carolina.vercel.app" target="_blank" class="cyber-button w-full py-2 text-center text-[10px] font-bold block uppercase tracking-wider">ACCEDER_AL_NÚCLEO</a>
                             </div>
-                            <a href="https://monitor-west-carolina.vercel.app" target="_blank" class="cyber-button w-full py-2 text-center text-[10px] font-bold block uppercase tracking-wider">ACCEDER_AL_NÚCLEO</a>
-                        </div>
 
-                        <div class="cyber-border p-4 bg-black flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">[ PORTAL PROVEEDORES ]</h4>
-                                <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Muestra de hub digital privado con inicio de sesión para distribución de guías, manuales de facturación y checklists logísticos.</p>
+                            <div class="cyber-border p-4 bg-black flex flex-col justify-between min-h-[200px]">
+                                <div>
+                                    <h4 class="text-white font-bold text-sm mb-1">[ PORTAL PROVEEDORES ]</h4>
+                                    <p class="text-xs text-zinc-400 mb-4 leading-relaxed">Muestra de hub digital privado con inicio de sesión para distribución de guías, manuales de facturación y checklists logísticos.</p>
+                                </div>
+                                <a href="https://sample-page-phi.vercel.app/" target="_blank" class="cyber-button w-full py-2 text-center text-[10px] font-bold block uppercase tracking-wider">ACCEDER_AL_PANEL</a>
                             </div>
-                            <a href="https://sample-page-phi.vercel.app/" target="_blank" class="cyber-button w-full py-2 text-center text-[10px] font-bold block uppercase tracking-wider">ACCEDER_AL_PANEL</a>
-                        </div>
 
-                        <div class="cyber-border p-4 bg-black flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">[ LECTURA JAPONÉS ]</h4>
-                                <p class="text-xs text-zinc-400 mb-4 leading-relaxed">
-                                    Aplicación web interactiva enfocada en el aprendizaje y práctica del idioma japonés. Permite interceptar y seleccionar caracteres (Kanjis) para parsear y mostrar su lectura correcta en hiragana junto con su traducción al español.
-                                </p>
+                            <div class="cyber-border p-4 bg-black flex flex-col justify-between min-h-[200px]">
+                                <div>
+                                    <h4 class="text-white font-bold text-sm mb-1">[ LECTURA JAPONÉS ]</h4>
+                                    <p class="text-xs text-zinc-400 mb-4 leading-relaxed">
+                                        Aplicación web interactiva enfocada en el aprendizaje y práctica del idioma japonés. Permite interceptar y seleccionar caracteres (Kanjis) para parsear y mostrar su lectura correcta en hiragana junto con su traducción al español.
+                                    </p>
+                                </div>
+                                <a href="https://mashine759.github.io/LeerjaponesPortafolio/" target="_blank" class="cyber-button w-full py-2 text-center text-[10px] font-bold block uppercase tracking-wider">PROBAR_ALGORITMO</a>
                             </div>
-                            <a href="https://mashine759.github.io/LeerjaponesPortafolio/" target="_blank" class="cyber-button w-full py-2 text-center text-[10px] font-bold block uppercase tracking-wider">PROBAR_ALGORITMO</a>
                         </div>
                     </div>
 
@@ -258,11 +260,10 @@
                         💬 ENVIAR_MENSAJE_WHATSAPP
                     </a>
                 </div>
-
             </div>
 
             <!-- PIE DE PÁGINA -->
-            <footer class="mt-8 pt-4 border-t border-green-950 text-center text-[10px] text-green-700 font-bold tracking-widest">
+            <footer class="mt-12 pt-4 border-t border-green-950 text-center text-[10px] text-green-700 font-bold tracking-widest shrink-0">
                 SISTEMA OPERATIVO COMPILADO // © 2026 CARO_CODE
             </footer>
 
